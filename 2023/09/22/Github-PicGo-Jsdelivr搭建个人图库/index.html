@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta name="generator" content="Hexo 6.3.0">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0">
+  <meta charset="utf-8">
+  
+
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  <link rel='dns-prefetch' href='https://gcore.jsdelivr.net'>
+  <link rel="preconnect" href="https://gcore.jsdelivr.net" crossorigin>
+  <link rel='dns-prefetch' href='//unpkg.com'>
+
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" content="#f8f8f8">
+  
+  <title>Github+PicGo+Jsdelivr搭建个人图库 - GoodYuan</title>
+
+  
+    <meta name="description" content="免费搭建个人的图库">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Github+PicGo+Jsdelivr搭建个人图库">
+<meta property="og:url" content="https://blog.goodyuan.top/2023/09/22/Github-PicGo-Jsdelivr%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%93/index.html">
+<meta property="og:site_name" content="GoodYuan">
+<meta property="og:description" content="免费搭建个人的图库">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/explorer_RR9RQHhVWu.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_luRvM8GOxu.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_L961393nOa.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_R4KhcCzSI3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/3GGFe1QAPO.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/photolaunch_OjGskDs6Zy.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_OOzPo70HeO.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_YEUPneJ9ZN.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_CtzuX4v4dh.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/YUegTFraLT.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/sGHaecfOyw.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/PicGo_4S18kFfBNe.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/PicGo_H9EMKSskwf.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/PicGo_1YH1sdYa0m.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_rxh1X1yJFr.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/PicGo_CdggnjrVLb.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/mintty_v1QshYuQC2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/mintty_lr8Lej3Kh6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/ShareX_5sOaBBBfzl.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/mintty_JorcI3Ss0c.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/notepad%2B%2B_iXbfXj4WIP.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/g39MRJ5TFl.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/MarkText_ZS6t4KQDHa.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_Xe821g1M9L.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/DeKsFC9O1g.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/qGMDB5uStC.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/hobJ6dc4vN.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/ENgRxZll7J.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/ShareX_20Xko7unJj.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/ua0qsZXcTp.png">
+<meta property="article:published_time" content="2023-09-22T15:53:51.000Z">
+<meta property="article:modified_time" content="2023-09-23T17:17:50.486Z">
+<meta property="article:author" content="Mogra">
+<meta property="article:tag" content="github">
+<meta property="article:tag" content="picgo">
+<meta property="article:tag" content="jsdelivr">
+<meta property="article:tag" content="图库">
+<meta property="article:tag" content="shareX">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/explorer_RR9RQHhVWu.png">
+  
+  
+  
+  <meta name="keywords" content="github,picgo,jsdelivr,图库,shareX">
+
+  <!-- feed -->
+  
+
+  
+    
+<link rel="stylesheet" href="/css/main.css">
+
+  
+
+  
+
+  
+
+  
+
+
+  
+    
+      <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="all" />
+    
+  
+</head>
+
+<body>
+  
+
+
+
+
+  <div class='l_body' id='start'>
+    <aside class='l_left' layout='post'>
+    
+
+  
+
+<header class="header"><div class="logo-wrap"><a class="title" href="/"><div class="main" ff="title">GoodYuan</div><div class="sub normal cap">Mogra`s Blog</div><div class="sub hover cap" style="opacity:0"> 随便瞎写</div></a></div>
+
+<nav class="menu dis-select"></nav>
+</header>
+
+
+<div class="widgets">
+<widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
+
+
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">Github+PicGo+Jsdelivr搭建个人图库</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">遇到的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95"><span class="toc-text">解决办法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E8%A6%81%E7%94%A8%E5%88%B0%E7%9A%84%E7%9F%A5%E8%AF%86%EF%BC%88%E5%B0%8F%E7%99%BD%E5%BF%85%E7%9C%8B%EF%BC%89"><span class="toc-text">需要用到的知识（小白必看）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%88%B0%E7%9A%84%E8%BD%AF%E4%BB%B6"><span class="toc-text">用到的软件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BAgithub%E4%BB%93%E5%BA%93-%E5%AB%8C%E5%95%B0%E5%97%A6%E7%9A%84%E4%BB%8E%E8%BF%99%E9%87%8C%E5%BC%80%E5%A7%8B"><span class="toc-text">创建github仓库(嫌啰嗦的从这里开始)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85Picgo"><span class="toc-text">安装Picgo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEpicgo"><span class="toc-text">配置picgo</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#jsdelivr-%E5%8A%A0%E9%80%9F"><span class="toc-text">jsdelivr 加速</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MarkText%E8%AE%BE%E7%BD%AEpicgo"><span class="toc-text">MarkText设置picgo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85ShareX"><span class="toc-text">安装ShareX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ShareX%E8%A7%A3%E5%86%B3%E6%88%AA%E5%9B%BE%E7%B2%98%E8%B4%B4%E9%97%AE%E9%A2%98"><span class="toc-text">ShareX解决截图粘贴问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%90%8E"><span class="toc-text">最后</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></div></div></widget>
+
+
+
+
+</div>
+
+
+    </aside>
+    <div class='l_main'>
+      
+
+      
+
+
+
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-09-22T15:53:51.000Z">2023-09-22</time></div></div>
+
+<article class='md-text content post'>
+<h1 class="article-title"><span>Github+PicGo+Jsdelivr搭建个人图库</span></h1>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>图片存储、显示的问题是只要写blog的人就避免不了的问题之一。之前由于一直在本地的jupyter notebook（以下简称 jupyter） 写 blog<del>（到底是算笔记还是blog呢？）</del>，jupyter 有一个很神奇的功能：当你使用 windows 自带的截图，截图后直接 <kbd>ctrl</kbd>+<kbd>v</kbd> 就能直接在 jupyter 上面正常显示，都不需要保存图片。但是这样也有缺点，就是你不能对这些图片的位置进行移动，不然就不能正常显示图片了。</p>
+<p>但是由于最近，打算写一个真正的 blog，所以在没有搭建图床之前，遇到了一些关于图片的问题。</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>1.由于是刚接触 hexo，还不太会用，所以图片的存储路径是一个很大的问题。</p>
+<p>2.知道 hexo 会将本地的 blog 文件夹（即存放 hexo 资源和blog文件的文件夹，以下统称blog文件夹）中 source 文件夹中的文件上传到 github 中。</p>
+<p>3.也是刚接触 marktext，很多功能不太熟悉。</p>
+<p>4.图片显示只能在 marktext 和网页中选一个<del>（即写 blog 时看见图片，上传后网站里就看不见图片）</del></p>
+<p>5.以为搭建一个个人图床，必须要有服务器<del>（坚定的白嫖党怎么能花钱！）</del>。当然不一定要服务器，有公网 ip 在自己电脑上也可搭建、但是公网 ip 也同样没有。</p>
+<h3 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h3><p>1.不知道在 blog 文件夹中的哪里创建文件夹用于存储图片比较好，所以就在 blog 文件夹下的 source文件夹 中创建了一个用于存储所有图片的文件夹 pic。但是图片不能像在j upyter 中一样直接 <kbd>ctrl</kbd>+<kbd>v</kbd> 就可以万事大吉。而且图片只会在写文章时显示（因为使用的绝对路径），在网站中就不显示。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/explorer_RR9RQHhVWu.png"/></div></div>
+
+<p>2.然后为了在网站中显示图片，就在写文章时将图片的路径改为相对路径，这样网站中图片显示的问题就解决了（emmm那么代价就是写文章时就看不见图片了）</p>
+<p>3.而且为了管理好图片，每次写文章都要再创建一个同名文件夹存储该文章的图片，实在太麻烦，打击写 blog 的心情。</p>
+<p>4.然后查阅<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">hexo官方配置文档</a>时，发现一个功能，就是创建文章时，能自动在_posts目录下再创建一个同名文件夹，可以用来存储图片。（但是还是没有解决图片显示 和 还要额外将图片存储到文件夹的问题）</p>
+<h3 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h3><p>创建一个 github 公开仓库，将 Pico 绑定 github，然后将本地的图片使用 picgo 上传，picgo 会将图片上传到 github 仓库，然后生成一个图片的 url ，然后使用免费 jsdelivr cdn对 github 仓库（即对生成的url进行加速）进行加速，最后使用 shareX 解决 windows截图不会自动保存，导致不能直接 截图 +<kbd>ctrl</kbd>+<kbd>v</kbd> 上传图片的问题。</p>
+<p>这样一套组合拳就能和之前在 jupyter 上写笔记一样了，十分便捷，而且完全免费。</p>
+<h3 id="需要用到的知识（小白必看）"><a href="#需要用到的知识（小白必看）" class="headerlink" title="需要用到的知识（小白必看）"></a>需要用到的知识（小白必看）</h3><p>1.会用github，指创建仓库</p>
+<ol start="2">
+<li></li>
+</ol>
+<p>3.愿意折腾，会自己解决问题</p>
+<h3 id="用到的软件"><a href="#用到的软件" class="headerlink" title="用到的软件"></a>用到的软件</h3><p>1.[picgo网址](<a target="_blank" rel="noopener" href="https://picgo.github.io/PicGo-Doc/zh/guide/#picgo-is-here">PicGo is Here | PicGo</a>)：一个用于快速上传图片并获取图片 URL 链接的工具</p>
+<p>2.<a target="_blank" rel="noopener" href="https://getsharex.com/">ShareX - The best free and open source screenshot tool for Windows (getsharex.com)</a>：一个截屏软件</p>
+<p>3.<a target="_blank" rel="noopener" href="https://www.marktext.cc/">MarkText</a>：一个md编辑器</p>
+<p>4.npm包管理器</p>
+<p>5.魔法，如果遇到网站打不开，或者图片上传失败，可能是没有使用魔法</p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><p>1.picgo-2.3.1(指客户端的picgo)</p>
+<p>2.markText- 0.17.0.1</p>
+<p>3.shareX-15.0</p>
+<p>4.windows10</p>
+<h3 id="创建github仓库-嫌啰嗦的从这里开始"><a href="#创建github仓库-嫌啰嗦的从这里开始" class="headerlink" title="创建github仓库(嫌啰嗦的从这里开始)"></a>创建github仓库(嫌啰嗦的从这里开始)</h3><p>1.创建一个 github 仓库 ，repository name 自己订，但是下面的必须选Public（血泪教训，不然后面只能上传github，但是图片根本不显示）</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_luRvM8GOxu.png"/></div></div>
+
+<p>2.仓库创建完成以后，点击右侧自己的头像，选择 settings</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_L961393nOa.png"/></div></div>
+
+<p>3.左边侧边栏最下面，选择 Developer settings</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_R4KhcCzSI3.png"/></div></div>
+
+<p>4.点击 Personal access tokens,然后选择 Tokens，点击右边的 Generate new token，选择 Generate new token classic。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/3GGFe1QAPO.png"/></div></div>
+
+<p>5.自定义Note 和 Expiration，记得勾选 repo，然后划到最下面点击 Generate token即可</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/photolaunch_OjGskDs6Zy.png"/></div></div>
+
+<p>6.生成后你会看到一串字符串，一定要把这个Token复制、保存下来(可以新创一个txt文件，保存到里面)，因为只会出现一次。</p>
+<h3 id="安装Picgo"><a href="#安装Picgo" class="headerlink" title="安装Picgo"></a>安装Picgo</h3><p>1.打开picgo官网，可以看见许多下载方式，这里使用的是山东大学镜像站</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_OOzPo70HeO.png"/></div></div>
+
+<p>2.进入山东大学镜像站后选择 v2.3.1</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_YEUPneJ9ZN.png"/></div></div>
+
+<p>3.windows10用户选下面的</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_CtzuX4v4dh.png"/></div></div>
+
+<p>4.下载完成进行安装即可，可以参考下面</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/YUegTFraLT.png"/></div></div>
+
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/sGHaecfOyw.png"/></div></div>
+
+<h3 id="配置picgo"><a href="#配置picgo" class="headerlink" title="配置picgo"></a>配置picgo</h3><p>1.打开刚刚安装的 picgo，点击图床设置，选择 github</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/PicGo_4S18kFfBNe.png"/></div></div>
+
+<p>2.将你上面创建的github仓库填入，分支名默认为main（如果你没有修改github仓库的分支），token填入上面要你复制的token</p>
+<p>3.存储路径可以不填，也可自己定义，即使你的github仓库没有对应的路径，picgo会帮你自动创建</p>
+<h4 id="jsdelivr-加速"><a href="#jsdelivr-加速" class="headerlink" title="jsdelivr 加速"></a>jsdelivr 加速</h4><p>(<a target="_blank" rel="noopener" href="https://www.jsdelivr.com/?docs=gh">jsDelivr - A free, fast, and reliable CDN for JS and open source</a>)</p>
+<p>在自定义域名处填入jsdelivr 加速 github 的 url 格式：<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/">https://cdn.jsdelivr.net/gh/</a> 你的账户名&#x2F;你的仓库名@你的分支名</p>
+<p>如我的就是：<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/aericalao/picgo@main">https://cdn.jsdelivr.net/gh/aericalao/picgo@main</a></p>
+<p>现在就可以尝试上传图片，选择上传区和下面的 url，随便选一个图片上传进行测试</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/PicGo_H9EMKSskwf.png"/></div></div>
+
+<p>上传过程下面会有进度条</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/PicGo_1YH1sdYa0m.png"/></div></div>
+
+<p>上传完成后，会有提示，此时你点击 相册可以看见图片的预览，也可可以复制url，到浏览器打开查看图片，都能看见图片就可以继续了。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_rxh1X1yJFr.png"/></div></div>
+
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/PicGo_CdggnjrVLb.png"/></div></div>
+
+<h3 id="MarkText设置picgo"><a href="#MarkText设置picgo" class="headerlink" title="MarkText设置picgo"></a>MarkText设置picgo</h3><p>[MarkText的安装](<a href="https://blog.goodyuan.top/2023/09/17/Hexo-Github-Page%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/#MarkText">Hexo+Github Page搭建个人博客 - GoodYuan</a>)在本站有，可以自行查看。</p>
+<p><code>v0.17.1</code>这个版本的<code>MarkText</code>识别不了exe文件直接安装的<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=picgo&spm=1001.2101.3001.7020">picgo</a>，所以使用<code>npm</code>安装<code>picgo</code></p>
+<p>1.打开 cmd 或者 gitbash，全局安装 picgo，执行 <code>npm install picgo -g</code></p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/mintty_v1QshYuQC2.png"/></div></div>
+
+<p>2.执行 <code>where picgo</code> 可以查看picgo的安装路径，看见 picgo 和 picgo.cmd，则说明安装成功</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/mintty_lr8Lej3Kh6.png"/></div></div>
+
+<p>3.配置picgo的github，执行 <code>picgo set uploader</code>,使用小键盘的↑↓选择，Enter进行确认，配置的东西和上面picgo客户端一致，下面是我已经配置好的。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/ShareX_5sOaBBBfzl.png"/></div></div>
+
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/mintty_JorcI3Ss0c.png"/></div></div>
+
+<p>4.也可以打开 <code>C:\Users&#123;username&#125;\.picgo\config.json</code> 文件直接在文件中进行修改</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/notepad%2B%2B_iXbfXj4WIP.png"/></div></div>
+
+<p>5.打开 MarkText,点击左上角,选择文件，选择 偏好设置</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/g39MRJ5TFl.png"/></div></div>
+
+<p>6.选择 图片，配置和下面一致就行</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/MarkText_ZS6t4KQDHa.png"/></div></div>
+
+<h3 id="安装ShareX"><a href="#安装ShareX" class="headerlink" title="安装ShareX"></a>安装ShareX</h3><p>1.进入 sharex官网，点击 download ，点击 Setup 等待下载</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_Xe821g1M9L.png"/></div></div>
+
+<p>2.选择 I accept</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/DeKsFC9O1g.png"/></div></div>
+
+<p>3.自定义文件路径</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/qGMDB5uStC.png"/></div></div>
+
+<p>4.自行按需勾选</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/hobJ6dc4vN.png"/></div></div>
+
+<p>5.点击 install</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/ENgRxZll7J.png"/></div></div>
+
+<h3 id="ShareX解决截图粘贴问题"><a href="#ShareX解决截图粘贴问题" class="headerlink" title="ShareX解决截图粘贴问题"></a>ShareX解决截图粘贴问题</h3><p>使用 windows 自带的截图时，直接粘贴到 MarkText 会导致图片一直在上传，这是因为windows 自带的截图不会自动保存到本地。</p>
+<p>1.打开 shareX ，点击 截图后的任务</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/ShareX_20Xko7unJj.png"/></div></div>
+
+<p>2.安装 shareX后，可能会出现，这是因为ShareX默认的截图快捷键和windows自带的截图快捷键发生了冲突，自行取消一个即可。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/ua0qsZXcTp.png"/></div></div>
+
+<h3 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h3><p>这篇文章只是简单记录以下自己搭建个人图床的过程，只是列出了我搭建图床中遇到的问题，希望大家可以避坑，中间可能还会遇到我的文章中没有提到的问题，大家可以自己搜索解决，希望大家都能完成自己的个人图床的搭建。</p>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>1.<a target="_blank" rel="noopener" href="https://blog.csdn.net/xdnxl/article/details/129466060">如何用github搭建图床（亲测有效）_github图床_jxwd的博客-CSDN博客</a></p>
+<p>2.<a target="_blank" rel="noopener" href="https://blog.csdn.net/fengbaoyihao3000/article/details/128596277">好用的Markdown编辑器——MarkText配置（MarkText+Picgo+GitHub）_依然的风暴的博客-CSDN博客</a></p>
+<p>3.<a target="_blank" rel="noopener" href="https://blog.csdn.net/yanzhenjingfan/article/details/124386469#:~:text=markText%20%E8%AE%BE%E7%BD%AE%20%E6%AD%A5%E9%AA%A4%EF%BC%9A%E5%B7%A6%E4%B8%8A%E8%A7%92%20File%20%3D%3E%20Preferences%20%3D%3E%20Image,uploader%20%28must%20be%20configured%20below%29%20%3D%3E%20%E4%B8%8B%E9%9D%A2%E7%9A%84%E6%A1%86%E6%A1%86%E9%80%89%E6%8B%A9%20picgo">MarkText + picgo图床选择(GitHub或MinIO)_picgo minio_木一番的博客-CSDN博客</a></p>
+<p>4.<a target="_blank" rel="noopener" href="https://www.52txr.cn/2022/MarktextPicgo.html">一篇就够，超详细配置Marktext的Picgo-Core图片上传到七牛云图床 - 陶小桃Blog (52txr.cn)</a></p>
+
+
+
+<div class="article-footer reveal fs14"><section id="license"><div class="header"><span>许可协议</span></div><div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div></section></div>
+
+</article>
+
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/09/21/python%E5%AE%9E%E7%8E%B0B%E7%AB%99%E7%9B%B4%E6%92%AD%E8%87%AA%E5%8A%A8%E5%BC%B9%E5%B9%95%E5%8F%91%E9%80%81/">python实现B站直播自动弹幕发送</a></div></section></div>
+
+
+
+
+
+
+
+
+      
+<footer class="page-footer reveal fs12"><hr><div class="sitemap"><div class="sitemap-group"><span class="fs14">博客</span><a href="/">近期</a><a href="/">分类</a><a href="/">标签</a><a href="/">归档</a></div></div><div class="text"><p>本站由 <a href="/">@Mogra</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar">Stellar</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+
+      <div class='float-panel mobile-only blur' style='display:none'>
+  <button type='button' class='sidebar-toggle mobile' onclick='sidebar.toggle()'>
+    <svg class="icon" style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="15301"><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 2.3 26.8 24.6 47.5 51.6 47.6h416.5v4z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15302"></path><path d="M566.407 808.3c26.9-0.1 49.3-20.8 51.6-47.6-1.9-27.7-23.9-49.7-51.6-51.6h-412.6c-28.2-1.4-52.6 19.5-55.5 47.6 1.9 27.7 23.9 49.7 51.6 51.6h416.5z m309.3-249.9c26.9-0.1 49.3-20.8 51.6-47.6-2.2-26.8-24.6-47.5-51.6-47.6h-721.9c-27.7-2.8-52.5 17.4-55.3 45.1-0.1 0.8-0.1 1.7-0.2 2.5 0.9 27.2 23.6 48.5 50.7 47.6H875.707z m-103.1-245.9c26.9-0.1 49.3-20.8 51.6-47.6-0.4-28.3-23.2-51.1-51.5-51.6h-618.9c-29.5-1.1-54.3 21.9-55.5 51.4v0.2c1.4 27.8 25.2 49.2 53 47.8 0.8 0 1.7-0.1 2.5-0.2h618.8z" p-id="15303"></path></svg>
+  </button>
+</div>
+
+    </div>
+  </div>
+  <div class='scripts'>
+    <script type="text/javascript">
+  const stellar = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    loadCSS: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    // 从 butterfly 和 volantis 获得灵感
+    loadScript: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = stellar.config.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    // https://github.com/jerryc127/hexo-theme-butterfly
+    jQuery: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        stellar.loadScript(stellar.plugins.jQuery).then(fn)
+      } else {
+        fn()
+      }
+    }
+  };
+  stellar.version = '1.19.0';
+  stellar.github = 'https://github.com/xaoxuu/hexo-theme-stellar/tree/1.19.0';
+  stellar.config = {
+    date_suffix: {
+      just: '刚刚',
+      min: '分钟前',
+      hour: '小时前',
+      day: '天前',
+      month: '个月前',
+    },
+    root : '/',
+  };
+
+  // required plugins (only load if needs)
+  stellar.plugins = {
+    jQuery: 'https://gcore.jsdelivr.net/npm/jquery@3.6.2/dist/jquery.min.js'
+  };
+
+  if ('local_search') {
+    stellar.search = {};
+    stellar.search.service = 'local_search';
+    if (stellar.search.service == 'local_search') {
+      let service_obj = Object.assign({}, {"field":"all","path":"/search.json","content":true,"sort":"-date"});
+      stellar.search[stellar.search.service] = service_obj;
+    }
+  }
+
+  // stellar js
+  stellar.plugins.stellar = Object.assign({"sites":"/js/plugins/sites.js","friends":"/js/plugins/friends.js","ghinfo":"/js/plugins/ghinfo.js","timeline":"/js/plugins/timeline.js","linkcard":"/js/plugins/linkcard.js","fcircle":"/js/plugins/fcircle.js","weibo":"/js/plugins/weibo.js"});
+
+  stellar.plugins.marked = Object.assign("https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js");
+  // optional plugins
+  if ('true' == 'true') {
+    stellar.plugins.lazyload = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js","transition":"blur"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.swiper = Object.assign({"enable":true,"css":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.css","js":"https://unpkg.com/swiper@8.4.5/swiper-bundle.min.js"});
+  }
+  if ('' == 'true') {
+    stellar.plugins.scrollreveal = Object.assign({"enable":null,"js":"https://gcore.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js","distance":"8px","duration":500,"interval":100,"scale":1});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.preload = Object.assign({"enable":true,"service":"flying_pages","instant_page":"https://gcore.jsdelivr.net/gh/volantis-x/cdn-volantis@4.1.2/js/instant_page.js","flying_pages":"https://gcore.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.fancybox = Object.assign({"enable":true,"js":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js","css":"https://gcore.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css","selector":".swiper-slide img"});
+  }
+  if ('false' == 'true') {
+    stellar.plugins.heti = Object.assign({"enable":false,"css":"https://unpkg.com/heti@0.9.2/umd/heti.min.css","js":"https://unpkg.com/heti@0.9.2/umd/heti-addon.min.js"});
+  }
+  if ('true' == 'true') {
+    stellar.plugins.copycode = Object.assign({"enable":true,"js":"/js/plugins/copycode.js","default_text":"Copy","success_text":"Copied"});
+  }
+</script>
+
+<!-- required -->
+
+  
+<script src="/js/main.js" async></script>
+
+
+
+<!-- optional -->
+
+
+
+<!-- inject -->
+
+
+  </div>
+<!-- hexo injector body_end start -->
+  <style>
+    .highlight {
+      position: relative;
+    }
+    .highlight .code .copy-btn{
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 4px 0.5rem;
+      opacity: 0.25;
+      font-weight: 700;
+      color: var(--theme);
+      cursor: pointer;
+      transination: opacity 0.3s;
+    }
+    .highlight .code .copy-btn:hover{
+      color: var(--text-code);
+      opacity: 0.75;
+    }
+    .highlight .code .copy-btn.success {
+      color: var(--swiper-theme-color);
+      opacity: 0.75;
+
+    }
+    
+  </style>
+  <script>
+    const codeElementArr = document.querySelectorAll('.code')
+    codeElementArr.forEach(code => {
+      const codeBeforeWidth = window.getComputedStyle(code, '::before').width.split('px')[0]
+      const codeBeforePadding = window.getComputedStyle(code, '::before').padding.split(' ').pop().split('px')[0]
+  
+      // copy btn 
+      const codeCopyBtn = document.createElement('div')
+      codeCopyBtn.classList.add('copy-btn')
+      codeCopyBtn.style.right = Number(codeBeforeWidth) + Number(codeBeforePadding) * 2 + 'px'
+      codeCopyBtn.innerText = 'Copy'
+      code.appendChild(codeCopyBtn)
+  
+      codeCopyBtn.addEventListener('click', async () => {
+        const currentCodeElement = code.children[0]?.innerText
+        await copyCode(currentCodeElement)
+
+
+        codeCopyBtn.innerText = 'Copied'
+        codeCopyBtn.classList.add('success')
+
+        setTimeout(() => {
+          codeCopyBtn.innerText = 'Copy'
+          codeCopyBtn.classList.remove('success')
+        },1000)
+      })
+    })
+    
+    async function copyCode(currentCode) {
+      console.log(currentCode)
+      console.log('Copy')
+      if (navigator.clipboard) {
+        try {
+          await navigator.clipboard.writeText(currentCode)
+        } catch (error) {
+          // 未获得用户许可
+          console.error(error)
+        }
+      } else {
+        console.error('当前浏览器不支持此api')
+      }
+    }
+  </script>
+  <!-- hexo injector body_end end --></body>
+</html>
