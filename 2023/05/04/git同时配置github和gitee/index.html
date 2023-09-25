@@ -23,18 +23,21 @@
   <title>git同时配置github和gitee - GoodYuan</title>
 
   
-    <meta name="description" content="创建多个ssh key 一个github账号可以有多个设备的 ssh-key 与其关联。在不同的设备上使用同一个账号，生成不同的ssh-key，然后将由该github账号在不同电脑上生成的的ssh-key进行关联。 一个账号在不同的设备上都可以生成一个ssh-key，即一个github账号可以与多个设备进行关联  一个设备也可以使用多个github账号生成多个ssh-key。一个设备可以使用多个g">
+    <meta name="description" content="背景之前一直使用的是 gitee 进行笔记和代码的备份，为什么不用 github 呢？ 因为 gitee 更快，连接更加稳定。 为什么又要使用 github 呢？ 因为突然看见一篇文章说 gitee 开始被监管，出于备份多更安全的原则，所以觉得还是有必要再增加一个备份。 需求一次提交，可以同时上传到 github 和 gitee。 环境 windows10  （以windows10为例，Linux">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git同时配置github和gitee">
-<meta property="og:url" content="https://blog.goodyuan.top/2023/09/25/git%E5%90%8C%E6%97%B6%E9%85%8D%E7%BD%AEgithub%E5%92%8Cgitee/index.html">
+<meta property="og:url" content="https://blog.goodyuan.top/2023/05/04/git%E5%90%8C%E6%97%B6%E9%85%8D%E7%BD%AEgithub%E5%92%8Cgitee/index.html">
 <meta property="og:site_name" content="GoodYuan">
-<meta property="og:description" content="创建多个ssh key 一个github账号可以有多个设备的 ssh-key 与其关联。在不同的设备上使用同一个账号，生成不同的ssh-key，然后将由该github账号在不同电脑上生成的的ssh-key进行关联。 一个账号在不同的设备上都可以生成一个ssh-key，即一个github账号可以与多个设备进行关联  一个设备也可以使用多个github账号生成多个ssh-key。一个设备可以使用多个g">
+<meta property="og:description" content="背景之前一直使用的是 gitee 进行笔记和代码的备份，为什么不用 github 呢？ 因为 gitee 更快，连接更加稳定。 为什么又要使用 github 呢？ 因为突然看见一篇文章说 gitee 开始被监管，出于备份多更安全的原则，所以觉得还是有必要再增加一个备份。 需求一次提交，可以同时上传到 github 和 gitee。 环境 windows10  （以windows10为例，Linux">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_pBvi4Af8mS.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_TNb2RubRFm.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_iWYYqMiOA4.png">
-<meta property="article:published_time" content="2023-09-24T19:14:38.000Z">
-<meta property="article:modified_time" content="2023-09-24T20:28:54.199Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_thBjczi9xe.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_Zm4znSj2DL.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_0qm2rOPSzT.png">
+<meta property="article:published_time" content="2023-05-03T19:14:38.000Z">
+<meta property="article:modified_time" content="2023-09-25T17:49:25.229Z">
 <meta property="article:author" content="Mogra">
 <meta property="article:tag" content="github">
 <meta property="article:tag" content="git">
@@ -93,7 +96,7 @@
 <widget class="widget-wrapper search"><div class="widget-body"><div class="search-wrapper" id="search"><form class="search-form"><input type="text" class="search-input" id="search-input" data-filter="/blog/" placeholder="文章搜索"><svg t="1670596976048" class="icon search-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2676" width="200" height="200"><path d="M938.2 832.6L723.8 618.1c-2.5-2.5-5.3-4.4-7.9-6.4 36.2-55.6 57.3-121.8 57.3-193.1C773.3 222.8 614.6 64 418.7 64S64 222.8 64 418.6c0 195.9 158.8 354.6 354.6 354.6 71.3 0 137.5-21.2 193.2-57.4 2 2.7 3.9 5.4 6.3 7.8L832.5 938c14.6 14.6 33.7 21.9 52.8 21.9 19.1 0 38.2-7.3 52.8-21.8 29.2-29.1 29.2-76.4 0.1-105.5M418.7 661.3C284.9 661.3 176 552.4 176 418.6 176 284.9 284.9 176 418.7 176c133.8 0 242.6 108.9 242.6 242.7 0 133.7-108.9 242.6-242.6 242.6" p-id="2677"></path></svg></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div></div></widget>
 
 
-<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">git同时配置github和gitee</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%A4%9A%E4%B8%AAssh-key"><span class="toc-text">创建多个ssh key</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%B7%B2%E7%BB%8F%E5%AD%98%E5%9C%A8%E7%9A%84ssh-key"><span class="toc-text">查看已经存在的ssh key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90ssh-key"><span class="toc-text">生成ssh-key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bssh-key"><span class="toc-text">查看ssh-key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">创建配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86ssh%E5%85%AC%E9%92%A5%E4%B8%8E%E8%B4%A6%E5%8F%B7%E5%85%B3%E8%81%94"><span class="toc-text">将ssh公钥与账号关联</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol></li></ol></div></div></widget>
+<widget class="widget-wrapper toc single" id="data-toc"><div class="widget-header cap dis-select"><span class="name">git同时配置github和gitee</span></div><div class="widget-body fs14"><div class="doc-tree active"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9C%80%E6%B1%82"><span class="toc-text">需求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E5%88%B0%E7%9A%84%E7%9F%A5%E8%AF%86"><span class="toc-text">用到的知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%A4%9A%E4%B8%AAssh-key"><span class="toc-text">创建多个ssh key</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%B7%B2%E7%BB%8F%E5%AD%98%E5%9C%A8%E7%9A%84ssh-key"><span class="toc-text">查看已经存在的ssh key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%94%9F%E6%88%90ssh-key"><span class="toc-text">生成ssh-key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bssh-key"><span class="toc-text">查看ssh-key</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">创建配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%86ssh%E5%85%AC%E9%92%A5%E4%B8%8E%E8%B4%A6%E5%8F%B7%E5%85%B3%E8%81%94"><span class="toc-text">将ssh公钥与账号关联</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E5%90%8C%E6%97%B6git%E6%8E%A8%E9%80%81%E5%88%B0gitee%E5%92%8Cgithub"><span class="toc-text">将本地仓库同时git推送到gitee和github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93"><span class="toc-text">创建一个仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E6%94%B9%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">更改本地仓库的配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E6%83%85%E5%86%B5"><span class="toc-text">更多情况</span></a></li></ol></div></div></widget>
 
 
 
@@ -109,50 +112,96 @@
 
 
 
-<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-09-24T19:14:38.000Z">2023-09-25</time></div></div>
+<div class="bread-nav fs12"><div id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a><span class="sep"></span><a class="cap breadcrumb" href="/">文章</a></div><div id="post-meta">发布于&nbsp;<time datetime="2023-05-03T19:14:38.000Z">2023-05-04</time></div></div>
 
 <article class='md-text content post'>
 <h1 class="article-title"><span>git同时配置github和gitee</span></h1>
-<h3 id="创建多个ssh-key"><a href="#创建多个ssh-key" class="headerlink" title="创建多个ssh key"></a>创建多个ssh key</h3><ul>
-<li><p>一个github账号可以有多个设备的 ssh-key 与其关联。在不同的设备上使用同一个账号，生成不同的ssh-key，然后将由该github账号在不同电脑上生成的的ssh-key进行关联。</p>
-<p>一个账号在不同的设备上都可以生成一个ssh-key，即一个github账号可以与多个设备进行关联</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>之前一直使用的是 gitee 进行笔记和代码的备份，为什么不用 github 呢？</p>
+<p>因为 gitee 更快，连接更加稳定。</p>
+<p>为什么又要使用 github 呢？</p>
+<p>因为突然看见一篇文章说 gitee 开始被监管，出于备份多更安全的原则，所以觉得还是有必要再增加一个备份。</p>
+<h3 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h3><p>一次提交，可以同时上传到 github 和 gitee。</p>
+<h3 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h3><ol>
+<li><p>windows10  （以windows10为例，Linux除了路径略微区别，没指出的都一致）</p>
 </li>
-<li><p>一个设备也可以使用多个github账号生成多个ssh-key。一个设备可以使用多个github账号，生成多个ssh-key，将每个账号生成的ssh-key与对应的github账号进行关联。</p>
-<p>即一个设备可以生成多个ssh-key与多个github账号进行关联。</p>
+<li><p>git bash</p>
+</li>
+</ol>
+<h3 id="用到的知识"><a href="#用到的知识" class="headerlink" title="用到的知识"></a>用到的知识</h3><p>1.基本的 git 命令</p>
+<p>2.了解文件路径，即相对路径，绝对路径</p>
+<p>3.使用过 github 或者 gitee <del>(如果你都没有使用过其中之一，我想你应该不会有这个需求)</del></p>
+<h3 id="创建多个ssh-key"><a href="#创建多个ssh-key" class="headerlink" title="创建多个ssh key"></a>创建多个ssh key</h3><ul>
+<li><p>一个github账号可以有多个设备的 ssh-key 与其关联。在不同的设备上使用同一个账号，会生成不同的ssh-key。</p>
+</li>
+<li><p>即一个github账号可以与多个设备进行关联。</p>
+</li>
+<li><p>同一台设备也可以由多个 github 账号生成多个不同的 ssh-key。将每个账号生成的 ssh-key 与对应的 github 账号进行关联。</p>
+</li>
+<li><p>即一个设备可以生成多个 ssh-key 与多个 github 账号进行关联。</p>
 </li>
 </ul>
-<p>对于我来说我有一个gitee账号，和一个github账号，也有两台设备：一个台式，一个笔记本，所以创建多个ssh-key是十分有必要的。</p>
-<h4 id="查看已经存在的ssh-key"><a href="#查看已经存在的ssh-key" class="headerlink" title="查看已经存在的ssh key"></a>查看已经存在的ssh key</h4><p>打开git bash，输入：<code>ll ~/.ssh</code>，查看已经生成的ssh-key</p>
+<p>对于我来说我有一个 gitee 账号，和一个 github 账号，且两个账号是使用的不同邮箱；也有两台设备：一个台式，一个笔记本（Ubuntu），所以创建多个 ssh-key 对我来说是十分有必要的。</p>
+<h4 id="查看已经存在的ssh-key"><a href="#查看已经存在的ssh-key" class="headerlink" title="查看已经存在的ssh key"></a>查看已经存在的ssh key</h4><p>打开git bash，输入：<code>ll ~/.ssh</code>，查看已经生成的 ssh-key</p>
 <div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_pBvi4Af8mS.png"/></div></div>
 
-<h4 id="生成ssh-key"><a href="#生成ssh-key" class="headerlink" title="生成ssh-key"></a>生成ssh-key</h4><p>生成一个 Github 用的 SSH-Key，其中 github_id_rsa 为密钥的文件名，~&#x2F;.ssh&#x2F;github_id_rsa 为密钥目录位置：</p>
-<p>使用命令: <code>ssh-keygen -t rsa -C &#39;[邮箱]&#39; -f ~/.ssh/github_id_rsa</code>,然后按三次<code>enter</code>即可</p>
+<p>像我这里就有两组生成的 ssh-key 分别是 gitee 的 ssh-key 和 github 的 ssh-key，其中 github_id_rsa 为 ssh-key 密钥的私钥部分，github_id_rsa.pub 为 ssh-key 密钥的公钥部分。当然你们的 ssh-key 文件的名称可能和我不一致，因为这是我自己重命名了的。</p>
+<p>ssh-key 密钥的位置的位置在：~&#x2F;.ssh&#x2F;github_id_rsa。</p>
+<h4 id="生成ssh-key"><a href="#生成ssh-key" class="headerlink" title="生成ssh-key"></a>生成ssh-key</h4><p>生成一个 Github 用的 SSH-Key， 使用命令:</p>
+<p> <code>ssh-keygen -t rsa -C &#39;[邮箱]&#39; -f ~/.ssh/github_id_rsa</code></p>
+<p>然后按三次<code>enter</code>即可。</p>
 <ul>
-<li><p>邮箱使用自己的github账号即可，邮箱是生成的ssh-key的名称，并强制要求为某个邮箱，甚至可以不是邮箱。那为什么使用邮箱来标识一个ssh-key？</p>
-<p>因为github账号或者gitee，gitlab都是使用邮箱来注册的，你可能不只有一个这类的账号，所以使用自己的邮箱账号可以知道这个ssh-key是由哪一个账号生成的。</p>
+<li><p>邮箱使用自己的github账号的邮箱即可，邮箱是生成的 ssh-key 公钥的名称，并不强制要求为某个邮箱，甚至可以不是邮箱。</p>
+<p>那为什么要使用邮箱来标识一个ssh-key？</p>
+<p>因为github账号或者gitee，gitlab都是使用邮箱来注册的，你有可能不只一个这账号，所以使用自己的邮箱账号可以知道这个ssh-key是由哪一个账号生成的。</p>
 </li>
-<li><p>这里的密钥文件名也可也按照自己的喜好命名：github代表这个ssh是一个github的ssh-key，id_rsa是因为默认生成的ssh-key的文件名就是id_密钥类型，所以使用github_id_rsa。</p>
+<li><p>这里的密钥文件名也可也按照自己的喜好命名： </p>
+<p>github 代表这个 ssh-key 是一个 github 的 ssh-key ， id_rsa 是因为默认生成的ssh-key的文件名就是id_密钥类型，即这个rsa 就是密钥的类型。所以使用 github_id_rsa。</p>
 </li>
 <li><p>-t 选择生成密钥的类型：rsa、 ed25519、dsa等</p>
 </li>
 <li><p>-C 指定此密钥的备注信息，一般推荐使用自己的账号的邮箱作为标识</p>
 </li>
-<li><p>-f 指定密钥目录位置， 默认为当前用户home路径下的 .ssh 隐藏目录, 也就是 ~&#x2F;.ssh&#x2F;目录下 , 同时默认密钥文件名以 id_密钥类型 开头.</p>
-<p>如果是 root 用户, 则在 &#x2F;root&#x2F;.ssh&#x2F;目录下 , 若为其他用户, 则在&#x2F;home&#x2F;username&#x2F;.ssh&#x2F;目录下;</p>
+<li><p>-f 指定密钥目录位置， 默认为当前用户路径下的 .ssh 隐藏目录, 也就是 ~&#x2F;.ssh&#x2F;目录下 , 同时默认密钥文件名以 id_密钥类型 开头.</p>
+<p>windows中为：C:\Users\用户名.ssh</p>
+<p>Linux中：</p>
+<p>如果是 root 用户, 则在 &#x2F;root&#x2F;.ssh&#x2F;目录下 , 若为其他用户, 则在&#x2F;home&#x2F;username&#x2F;.ssh&#x2F;目录下。<del>（username是你自己的用户名）</del></p>
+<p>下图是三次<kbd>Enter</kbd>的位置</p>
 </li>
 </ul>
 <div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_TNb2RubRFm.png"/></div></div>
 
-<h4 id="查看ssh-key"><a href="#查看ssh-key" class="headerlink" title="查看ssh-key"></a>查看ssh-key</h4><p>查看ssh-key公钥，使用命令 <code>cat ~/.ssh/密钥文件名.pub</code>，<code>.pub</code>代表该密钥是一个ssh-key公钥。</p>
-<p>查看ssh-key私钥，使用命令<code>cat ~/.ssh/密钥文件名</code></p>
-<h4 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h4><p>在~&#x2F;.ssh&#x2F;目录下创建一个config文件，输入<code>vim ~/.ssh/config</code>,然后在配置文件中添加：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Host和HostName填写 Git 服务器的域名</span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line"># IdentityFile 指定私钥的路径</span><br><span class="line">IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"></span><br><span class="line">Host gitee.com</span><br><span class="line">HostName gitee.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/gitee_id_ed25519</span><br></pre></td></tr></table></figure>
+<h4 id="查看ssh-key"><a href="#查看ssh-key" class="headerlink" title="查看ssh-key"></a>查看ssh-key</h4><p>查看ssh-key公钥，使用命令： <code>cat ~/.ssh/密钥文件名.pub</code>，<code>.pub</code>代表该密钥是一个ssh-key公钥。</p>
+<p>查看ssh-key私钥，使用命令：<code>cat ~/.ssh/密钥文件名</code></p>
+<p>也可以使用记事本，Notepad++ 等打开查看</p>
+<h4 id="创建配置文件"><a href="#创建配置文件" class="headerlink" title="创建配置文件"></a>创建配置文件</h4><p>在 ~&#x2F;.ssh&#x2F; 目录下创建一个 config 文件，输入：<code>vim ~/.ssh/config</code>，然后在配置文件中添加：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Host和HostName填写 Git 服务器的域名</span><br><span class="line"># github的部分</span><br><span class="line">Host github.com</span><br><span class="line">HostName github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line"># IdentityFile 指定私钥的路径</span><br><span class="line">IdentityFile ~/.ssh/github_id_rsa</span><br><span class="line"></span><br><span class="line"># gitee的部分</span><br><span class="line">Host gitee.com</span><br><span class="line">HostName gitee.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/gitee_id_ed25519</span><br></pre></td></tr></table></figure>
 
-<h4 id="将ssh公钥与账号关联"><a href="#将ssh公钥与账号关联" class="headerlink" title="将ssh公钥与账号关联"></a>将ssh公钥与账号关联</h4><p>将对应账号生成的ssh-key与对应的账号进行关联。进入自己的github主页，将生成的ssh公钥进行添加即可</p>
-<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>输入<code>ssh -T git@github.com</code>,测试是否已经完成了ssh公钥添加，如果是第一次需要输入：<code>yes</code>,进行确认将主机host添加到到本机SSH可信列表know_list.</p>
+<h4 id="将ssh公钥与账号关联"><a href="#将ssh公钥与账号关联" class="headerlink" title="将ssh公钥与账号关联"></a>将ssh公钥与账号关联</h4><p>将对应账号生成的 ssh-key 与对应的账号进行关联。进入自己的github主页，将生成的ssh公钥进行添加即可。</p>
+<h4 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h4><p>输入<code>ssh -T git@github.com</code>，测试是否已经完成了ssh公钥添加，</p>
+<p>如果是第一次需要输入：<code>yes</code>，进行确认将主机host添加到到本机SSH可信列表know_list.</p>
 <div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_iWYYqMiOA4.png"/></div></div>
 
 <p>如果不是第一次则会看见：</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_thBjczi9xe.png"/></div></div>
+
+<h3 id="将本地仓库同时git推送到gitee和github"><a href="#将本地仓库同时git推送到gitee和github" class="headerlink" title="将本地仓库同时git推送到gitee和github"></a>将本地仓库同时git推送到gitee和github</h3><p>前面说了，一直使用的是 gitee 作为仓库，那么肯定本地已经存在了一个仓库。</p>
+<p>当然可能你本地的仓库是 github 的，但是无所谓，只要是本地已经有了一个仓库，就可以按照这个方法操作。</p>
+<h3 id="创建一个仓库"><a href="#创建一个仓库" class="headerlink" title="创建一个仓库"></a>创建一个仓库</h3><p>这里创建的是 github 仓库，你们自己可以按照自己的需求创建。</p>
+<p>唯一要注意的是：前往不要勾选 <code>Add a README fiel</code>。</p>
+<p>因为勾选之后会导致 github 会进行一次默认的提交，生成一个 默认的 branch （以前是master，现在是 main），导致和你本地的 branch 名不一致，导致无法正常提交。<del>(当然不是没办法，但这不是本文的讨论范畴)</del></p>
+<p>当然 仓库名 也最好保持一致。</p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_Zm4znSj2DL.png"/></div></div>
+
+<h3 id="更改本地仓库的配置文件"><a href="#更改本地仓库的配置文件" class="headerlink" title="更改本地仓库的配置文件"></a>更改本地仓库的配置文件</h3><p>复制刚创建仓库的 ssh 链接，</p>
+<p>进入到自己本地仓库的文件夹（即进行了git init或者git clone的文件夹），</p>
+<p>windows中直接使用 记事本打开即可。</p>
+<p>Linux执行:<code>sudo vim .git/config</code></p>
+<p>在下面输入:<code>url = 刚刚复制的ssh链接</code></p>
+<div class="tag-plugin image"><div class="image-bg"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://cdn.jsdelivr.net/gh/aericalao/picgo@main/images/msedge_0qm2rOPSzT.png"/></div></div>
+
+<p>以后每次提交，都会同时往gitee和github提交。</p>
+<h3 id="更多情况"><a href="#更多情况" class="headerlink" title="更多情况"></a>更多情况</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/346400298">如何将一个项目同时提交到GitHub和Gitee(码云)上 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43197640/article/details/113465872?spm=1001.2101.3001.6650.2&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-2-113465872-blog-119353185.235%5Ev38%5Epc_relevant_sort&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-2-113465872-blog-119353185.235%5Ev38%5Epc_relevant_sort&utm_relevant_index=1">Git使用同一个邮箱生成同一个公钥SSH-Key并配置连接Gitee和GitHub，数次失败并尝试亲测可行！_濮濮噗噗BOOM的博客-CSDN博客</a></p>
 
 
 
@@ -161,7 +210,7 @@
 
 </article>
 
-<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/09/22/Github-PicGo-Jsdelivr%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%9B%BE%E5%BA%93/">Github+PicGo+Jsdelivr搭建个人图库</a></div></section></div>
+<div class="related-wrap reveal" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/09/17/Hexo-Github-Page%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">Hexo+Github Page搭建个人博客</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/09/16/test/">test</a></div></section></div>
 
 
 
